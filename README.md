@@ -2,7 +2,11 @@
 
 ## Accessing Your Data
 
-### User Uploaded Files
+- [User-Uploaded Files](#user-uploaded-files)
+- [S3](#s3)
+- [Google Analytics](#google-analytics-coming-soon)
+
+### User-Uploaded Files
 1. For your convenience, we allow you to upload files directly to DataBlade and use them in your projects as easily as you might use files locally on your computer. To upload, simply click the Upload button on the "Data Integrations" page
 2. In your code, access your files using the following snippets:
 
