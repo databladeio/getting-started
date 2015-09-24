@@ -4,7 +4,7 @@
 
 - [User-Uploaded Files](#user-uploaded-files)
 - [S3](#s3)
-- [Google Analytics](#google-analytics-coming-soon)
+- [Google Analytics](#google-analytics)
 
 ### User-Uploaded Files
 1. For your convenience, we allow you to upload files directly to DataBlade and use them in your projects as easily as you might use files locally on your computer. To upload, simply click the Upload button on the "Data Integrations" page
@@ -39,7 +39,7 @@ my_file = dbl.s3.read_file(INTEGRATION_ID, BUCKET_NAME, KEY)
 my_dataframe = [json.loads(line) for line in my_file]
 ```
 
-### Google Analytics (coming soon)
+### Google Analytics
 1. Ensure that you [create or select a project in the Google Developers Console and enable the Analytics API](https://console.developers.google.com//start/api?id=analytics&credential=client_key)
 2. In the Developers Console for the chosen project, under **APIs & auth**, select **Credentials**. In the **Add credentials** dropdown, choose **Service account**. For **Key type**, select **P12**, then click **Create**. The private key should automatically download. Click **Close** in the dialog.
 3. Copy the email address of the newly generated service account and [add it as a user](https://support.google.com/analytics/answer/1009702) to your Google Analytics account. This user will likely only require **Read & Analyze** permissions.
