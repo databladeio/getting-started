@@ -1,5 +1,26 @@
 # Getting Started with DataBlade
 
+## Hello World
+
+DataBlade provides an interactive environment for doing data analysis. After logging in, create a new Project and start typing some code in the Console in the bottom right part of the screen and see what happens.
+
+```python
+a = 10
+```
+
+```python
+b = [1,2,3]
+```
+
+```python
+c = {"foo":"bar"}
+```
+
+```python
+print "Hello World!"
+```
+To move any snippets from the Console into your Editor, hover over the code and click the icon that appears to the left of the code.
+
 ## Accessing Your Data
 
 - [SQL](#sql)
