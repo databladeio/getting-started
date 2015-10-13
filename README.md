@@ -42,6 +42,13 @@ import datablade as dbl
 # You can optionally provide a keyword argument index_col="column name" to set
 # the DataFrame index. You'll often want to set this to your ID column name.
 r = dbl.sql.query(INTEGRATION_ID, SQL_QUERY)
+
+# You can also write a DataFrame back to your database
+# if_exists takes three parameters:
+#   "fail": If table exists, do nothing
+#   "replace": If table exists, drop it, recreate it, and insert data
+#   "append": If table exists, insert data. Create if does not exist
+dbl.sql.query(INTEGRATION_ID, TABLE_NAME, DATAFRAME, if_exists="fail")
 ```
 
 #### Creating a read-only user (PostgreSQL)
