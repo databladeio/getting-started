@@ -48,7 +48,7 @@ r = dbl.sql.query(INTEGRATION_ID, SQL_QUERY)
 #   "fail": If table exists, do nothing
 #   "replace": If table exists, drop it, recreate it, and insert data
 #   "append": If table exists, insert data. Create if does not exist
-dbl.sql.query(INTEGRATION_ID, TABLE_NAME, DATAFRAME, if_exists="fail")
+dbl.sql.write(INTEGRATION_ID, TABLE_NAME, DATAFRAME, if_exists="fail")
 ```
 
 #### Creating a read-only user (PostgreSQL)
