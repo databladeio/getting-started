@@ -115,7 +115,7 @@ results = data.ga.query(INTEGRATION_ID,
 1. Ensure that you [create or select a project in the Google Developers Console and enable the BigQuery API](https://console.developers.google.com//start/api?id=bigquery&credential=client_key)
 2. If you already have a service account with a P12 key, you can skip this step. Otherwise, in the Developers Console for the chosen project, under **APIs & auth**, select **Credentials**. In the **Add credentials** dropdown, choose **Service account**. For **Key type**, select **P12**, then click **Create**. The private key should automatically download. Click **Close** in the dialog.
 3. In DataBlade, set up a BigQuery integration, providing the service email account, the generated `.p12` file, and the associated project ID.
-5. In your code, query your BigQUery data using the following snippets:
+5. In your code, query your BigQuery data using the following snippets:
 
 ```python
 # Keep in mind that the format of BigQuery table names is <dataset name>.<table name>
