@@ -31,24 +31,22 @@ To move any snippets from the Console into your Editor, hover over the code and 
 
 
 ### SQL
-1. Under "Data Integrations", set up your SQL integration. We currently support PostgreSQL, MySQL, Oracle, and Microsoft SQL Server (MySQL, Oracle, and MS SQL may still have some issues, so let us know if you run into any). 
+1. Under "Data Integrations", set up your SQL integration. We currently support PostgreSQL, MySQL, Oracle, and Microsoft SQL Server (MySQL, Oracle, and MS SQL may still have some issues, so let us know if you run into any).
 2. Currently, we require that your database be accessible from external clients. In the future, we will have a solution for databases that are behind a firewall.
 3. Ensure that your database is set up to receive connections from `52.25.129.138/32`.
 4. In your code, you can query your SQL using the following snippets:
 
 ```python
-import datablade as dbl
-
 # You can optionally provide a keyword argument index_col="column name" to set
 # the DataFrame index. You'll often want to set this to your ID column name.
-r = dbl.sql.query(INTEGRATION_ID, SQL_QUERY)
+r = data.sql.query(INTEGRATION_ID, SQL_QUERY)
 
 # You can also write a DataFrame back to your database
 # if_exists takes three parameters:
 #   "fail": If table exists, do nothing
 #   "replace": If table exists, drop it, recreate it, and insert data
 #   "append": If table exists, insert data. Create if does not exist
-dbl.sql.write(INTEGRATION_ID, TABLE_NAME, DATAFRAME, if_exists="fail")
+data.sql.write(INTEGRATION_ID, TABLE_NAME, DATAFRAME, if_exists="fail")
 ```
 
 #### Creating a read-only user (PostgreSQL)
@@ -72,14 +70,11 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA public
 2. In your code, access your files using the following snippets:
 
 ```python
-import datablade as dbl
-import json
-
 # Read a CSV file
-my_csv = dbl.read_csv(FILE_NAME)
+my_csv = data.read_csv(FILE_NAME)
 
 # Read a file as a StringIO buffer. Here is an example with line-delimited JSON.
-my_file = dbl.read_file(FILE_NAME)
+my_file = data.read_file(FILE_NAME)
 my_dataframe = [json.loads(line) for line in my_file]
 ```
 
@@ -89,14 +84,11 @@ my_dataframe = [json.loads(line) for line in my_file]
 3. In your code, access your files using the following snippets:
 
 ```python
-import datablade as dbl
-import json
-
 # Read a CSV file (replace INTEGRATION_ID, BUCKET_NAME, and KEY as appropriate)
-my_csv = dbl.s3.read_csv(INTEGRATION_ID, BUCKET_NAME, KEY)
+my_csv = data.s3.read_csv(INTEGRATION_ID, BUCKET_NAME, KEY)
 
 # Read a file as a StringIO buffer. Here is an example with line-delimited JSON.
-my_file = dbl.s3.read_file(INTEGRATION_ID, BUCKET_NAME, KEY)
+my_file = data.s3.read_file(INTEGRATION_ID, BUCKET_NAME, KEY)
 my_dataframe = [json.loads(line) for line in my_file]
 ```
 
@@ -108,13 +100,11 @@ my_dataframe = [json.loads(line) for line in my_file]
 5. In your code, query your Google Analytics data using the following snippets:
 
 ```python
-import datablade as dbl
-
 # See all available query parameters:
 # https://developers.google.com/analytics/devguides/reporting/core/v3/reference?hl=en
 # You do not need to pass in the `id` parameter, as DataBlade will automatically
 # populate it for you.
-results = dbl.ga.query(INTEGRATION_ID,
+results = data.ga.query(INTEGRATION_ID,
     start_date='7daysAgo',
     end_date='today',
     dimensions="ga:browser",
@@ -128,8 +118,6 @@ results = dbl.ga.query(INTEGRATION_ID,
 5. In your code, query your BigQUery data using the following snippets:
 
 ```python
-import datablade as dbl
-
 # Keep in mind that the format of BigQuery table names is <dataset name>.<table name>
-results = dbl.bq.query(INTEGRATION_ID, SQL_QUERY)
+results = data.bq.query(INTEGRATION_ID, SQL_QUERY)
 ```
