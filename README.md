@@ -29,7 +29,7 @@ To move any snippets from the Console into your Editor, hover over the code and 
 - [Google Analytics](#google-analytics)
 - [Google BigQuery](#google-bigquery)
 - [MongoDB](#mongodb)
-
+- [Salesforce](#salesforce)
 
 ### SQL
 1. Under "Data Integrations", set up your SQL integration. We currently support PostgreSQL, MySQL, Oracle, and Microsoft SQL Server (MySQL, Oracle, and MS SQL may still have some issues, so let us know if you run into any).
@@ -132,4 +132,23 @@ results = data.mongodb.find(INTEGRATION_ID, COLLECTION_NAME, QUERY)
 
 # You can also access the raw pymongo client
 client = data.mongodb.get_client(INTEGRATION_ID)
+```
+
+### Salesforce
+1. Before accessing Salesforce with DataBlade, you'll have to set up a special user account for DataBlade. Log into Salesforce and in **Setup**, click **Profiles** under **Administer** > **Manage Users**. Then click **New Profile**.
+2. For **Existing Profile**, select "Read Only". For **Profile Name**, type "DataBlade". Click **Save**.
+3. Once your Profile is created, go down to the section labeled **Login IP Ranges** and click **New**.
+4. For both **Start IP Range** and **End IP Range**, enter `52.25.129.138`. Click **Save**.
+5. In the left navigation, click **Users** under **Administer** > **Manage Users**. Then click **New User**.
+6. For **Username**, type "datablade". For **User License**, select "Salesforce", and the under **Profile**, select "DataBlade". This is the new Profile you created in the previous steps.
+7. For the remaining required values, enter as you see fit, making sure that the email you use is one that you have access to.
+8. Click **Save**. You should receive an email shortly to set the password for this user.
+9. After setting the password, log in as the new DataBlade user. In the top right, click your username, then click **My Settings**.
+10. In the **Quick Find** field, type "token" and then click **Reset My Security Token**. Then click the **Reset Security Token** button. You will receive an email with a security token.
+11. Back in DataBlade, under "Data Integrations", set up your Salesforce integration by using the username of the account you just created, the password you set, and then the token you received in your email.
+12. You can now access your Salesforce objects using SOQL or SOSL using the following snippets:
+
+```python
+# Learn more about SOQL here: https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/
+results = data.salesforce.query(INTEGRATION_ID, QUERY)
 ```
