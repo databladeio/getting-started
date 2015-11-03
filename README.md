@@ -28,6 +28,7 @@ To move any snippets from the Console into your Editor, hover over the code and 
 - [S3](#s3)
 - [Google Analytics](#google-analytics)
 - [Google BigQuery](#google-bigquery)
+- [MongoDB](#mongodb)
 
 
 ### SQL
@@ -120,4 +121,15 @@ results = data.ga.query(INTEGRATION_ID,
 ```python
 # Keep in mind that the format of BigQuery table names is <dataset name>.<table name>
 results = data.bq.query(INTEGRATION_ID, SQL_QUERY)
+```
+
+### MongoDB
+1. Under "Data Integrations", set up your MongoDB integration. In **Connection String**, make sure to also include your database name in the URI.
+2. In your code, you can query your database using the following snippets:
+
+```python
+results = data.mongodb.find(INTEGRATION_ID, COLLECTION_NAME, QUERY)
+
+# You can also access the raw pymongo client
+client = data.mongodb.get_client(INTEGRATION_ID)
 ```
