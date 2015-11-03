@@ -19,6 +19,11 @@ c = {"foo":"bar"}
 ```python
 print "Hello World!"
 ```
+
+```python
+2 + 2
+```
+
 To move any snippets from the Console into your Editor, hover over the code and click the icon that appears to the left of the code.
 
 ## Accessing Your Data
