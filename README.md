@@ -1,6 +1,6 @@
 # Getting Started with DataBlade
 
-[![DataBlade demo video screenshot](http://img.youtube.com/vi/-sT9P5kHMf8/0.jpg)](https://www.youtube.com/watch?v=-sT9P5kHMf8)
+[![DataBlade demo video screenshot](https://github.com/databladeio/getting-started/blob/master/demo-video-screenshot.png)](https://www.youtube.com/watch?v=-sT9P5kHMf8)
 
 ## Hello World
 
