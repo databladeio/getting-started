@@ -1,5 +1,7 @@
 # Getting Started with DataBlade
 
+[![DataBlade demo video screenshot](http://img.youtube.com/vi/-sT9P5kHMf8/0.jpg)](https://www.youtube.com/watch?v=-sT9P5kHMf8)
+
 ## Hello World
 
 DataBlade provides an interactive environment for doing data analysis. After logging in, create a new Project and start typing some code in the Console in the bottom right part of the screen and see what happens.
