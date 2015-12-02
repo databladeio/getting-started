@@ -35,6 +35,7 @@ To move any snippets from the Console into your Editor, hover over the code and 
 - [S3](#s3)
 - [Google Analytics](#google-analytics)
 - [Google BigQuery](#google-bigquery)
+- [Google AdWords](#google-adwords)
 - [MongoDB](#mongodb)
 - [Salesforce](#salesforce)
 
@@ -128,6 +129,18 @@ results = data.ga.query(INTEGRATION_ID,
 ```python
 # Keep in mind that the format of BigQuery table names is <dataset name>.<table name>
 results = data.bq.query(INTEGRATION_ID, SQL_QUERY)
+```
+
+### Google AdWords
+1. If you haven't already done so, [apply for the Google AdWords API](https://developers.google.com/adwords/api/docs/signingup)
+2. Once API access is granted on your account, set up a Google AdWords integration in DataBlade, providing the [Developer Token](https://developers.google.com/adwords/api/faq#15113) and [Customer ID](https://support.google.com/adwords/answer/29198?hl=en). Click the *Authenticate with Google* button to complete the authentication process. Then click *Create*.
+3. In your code, retrieve Google AdWords reports using the following snippets:
+
+```python
+# Learn more about AdWords Query Language (AWQL) here: https://developers.google.com/adwords/api/docs/guides/awql#adhoc-reports
+# For a full list of report types and queryable fields, see: https://developers.google.com/adwords/api/docs/appendix/reports
+# Example AWQL query: "SELECT CampaignId, Clicks FROM CAMPAIGN_PERFORMANCE_REPORT DURING LAST_WEEK"
+report = data.adwords.query(INTEGRATION_ID, AWQL_QUERY)
 ```
 
 ### MongoDB
