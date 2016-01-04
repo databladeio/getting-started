@@ -38,6 +38,7 @@ To move any snippets from the Console into your Editor, hover over the code and 
 - [Google AdWords](#google-adwords)
 - [MongoDB](#mongodb)
 - [Salesforce](#salesforce)
+- [FTP](#ftp)
 
 ### SQL
 1. Under "Data Integrations", set up your SQL integration. We currently support PostgreSQL, MySQL, Oracle, and Microsoft SQL Server (MySQL, Oracle, and MS SQL may still have some issues, so let us know if you run into any).
@@ -176,4 +177,20 @@ client = data.mongodb.get_client(INTEGRATION_ID)
 ```python
 # Learn more about SOQL here: https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/
 results = data.salesforce.query(INTEGRATION_ID, QUERY)
+```
+
+### FTP
+1. Create a new FTP integration with the host and the user credentials.
+2. In your code, you can access your FTP files using the following snippets:
+
+```python
+# List the files in a directory
+files = data.ftp.ls(INTEGRATION_ID, DIRECTORY)
+
+# Get info about a specific file
+file_info = data.ftp.get_info(INTEGRATION_ID, PATH)
+
+# Get a File object (StringIO)
+file_pointer = data.ftp.read_file(INTEGRATION_ID, PATH)
+
 ```
