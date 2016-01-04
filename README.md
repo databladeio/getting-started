@@ -56,6 +56,12 @@ r = data.sql.query(INTEGRATION_ID, SQL_QUERY)
 #   "replace": If table exists, drop it, recreate it, and insert data
 #   "append": If table exists, insert data. Create if does not exist
 data.sql.write(INTEGRATION_ID, TABLE_NAME, DATAFRAME, if_exists="fail")
+
+# You can also update specific rows. ID refers to the specific row you
+# want to update. VALUES is a dict mapping column name -> updated value.
+# The return value is a Boolean indicating whether or not a row was successfully
+# updated. False likely means the ID was not found.
+row_was_updated = data.sql.update_row(INTEGRATION_ID, TABLE_NAME, ID, VALUES)
 ```
 
 #### Creating a read-only user (PostgreSQL)
