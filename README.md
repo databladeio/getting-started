@@ -106,6 +106,9 @@ my_csv = data.s3.read_csv(INTEGRATION_ID, BUCKET_NAME, KEY)
 # Read a file as a StringIO buffer. Here is an example with line-delimited JSON.
 my_file = data.s3.read_file(INTEGRATION_ID, BUCKET_NAME, KEY)
 my_dataframe = [json.loads(line) for line in my_file]
+
+# Write a File object to S3
+data.s3.write_file(INTEGRATION_ID, BUCKET_NAME, KEY, FILE_OBJECT)
 ```
 
 ### Google Analytics
