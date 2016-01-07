@@ -149,7 +149,7 @@ results = data.bq.query(INTEGRATION_ID, SQL_QUERY)
 
 ```python
 # Example AWQL query: "SELECT CampaignId, Clicks FROM CAMPAIGN_PERFORMANCE_REPORT DURING LAST_WEEK"
-report = data.adwords.query(INTEGRATION_ID, AWQL_QUERY)
+report = data.adwords.get_report(INTEGRATION_ID, AWQL_QUERY)
 ```
 
 ### MongoDB
