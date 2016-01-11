@@ -216,3 +216,6 @@ int_param = data.params.get_int("some_int_parameter", 1)
 float_param = data.params.get_float("some_float_parameter", 1.0)
 bool_param = data.params.get_bool("some_bool_parameter", True)
 ```
+
+### Setting a PIN code
+Since the URLs for self-service reports are publicly available, we allow users to set a PIN code that must be entered before the report can be accessed. The PIN code can be configured in the Web tab in the Report configuration pane. Leaving the PIN field empty will disable PIN protection.
