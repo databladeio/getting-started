@@ -195,5 +195,24 @@ file_info = data.ftp.get_info(INTEGRATION_ID, PATH)
 
 # Get a File object (StringIO)
 file_pointer = data.ftp.read_file(INTEGRATION_ID, PATH)
+```
 
+## Creating Self-Service Reports
+
+You may find yourself in a situation where you’ve developed a workflow that you’d like other, potentially non-technical team members, to be able to leverage. We can easily do this with a self-service web report page.
+
+Watch our video tutortial for creating self-service reports [here](https://www.youtube.com/watch?v=JUHBqlzrXqY).
+
+DataBlade provides a SDK for receiving parameter values from self-service report runs:
+
+```python
+# For all functions, the first parameter is the key name
+# (should be entered in "Parameter Keys" in the report config)
+# The second parameter is the default value. You'll want to provide one in most cases.
+# When you are developing in the IDE, there is no value provided for parameters, so
+# the default value will always be used.
+str_param = data.params.get_string("some_string_parameter", "default value")
+int_param = data.params.get_int("some_int_parameter", 1)
+float_param = data.params.get_float("some_float_parameter", 1.0)
+bool_param = data.params.get_bool("some_bool_parameter", True)
 ```
