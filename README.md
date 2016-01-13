@@ -39,6 +39,7 @@ To move any snippets from the Console into your Editor, hover over the code and 
 - [MongoDB](#mongodb)
 - [Salesforce](#salesforce)
 - [FTP](#ftp)
+- [Facebook](#facebook)
 
 ### SQL
 1. Under "Data Integrations", set up your SQL integration. We currently support PostgreSQL, MySQL, Oracle, and Microsoft SQL Server (MySQL, Oracle, and MS SQL may still have some issues, so let us know if you run into any).
@@ -195,6 +196,18 @@ file_info = data.ftp.get_info(INTEGRATION_ID, PATH)
 
 # Get a File object (StringIO)
 file_pointer = data.ftp.read_file(INTEGRATION_ID, PATH)
+```
+
+### Facebook
+1. Create a new Facebook integration and authenticate with an account that has access to your Ad Accounts.
+2. In your code, you can access your campaign information using the following snippets:
+
+```python
+# Get the Campaigns in your Ad Account
+campaigns = data.fb.get_campaigns(INTEGRATION_ID, AD_ACCOUNT_ID)
+
+# Get the Insights for a particular Campaign ID
+insights = data.fb.get_campaign_insights(INTEGRATION_ID, CAMPAIGN_ID)
 ```
 
 ## Creating Self-Service Reports
