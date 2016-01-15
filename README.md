@@ -208,6 +208,12 @@ campaigns = data.fb.get_campaigns(INTEGRATION_ID, AD_ACCOUNT_ID)
 
 # Get the Insights for a particular Campaign ID
 insights = data.fb.get_campaign_insights(INTEGRATION_ID, CAMPAIGN_ID)
+
+# You can also optionally pass in parameters, as documented here:
+# https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group/insights/
+# For example:
+insights_actions_only = data.fb.get_campaign_insights(INTEGRATION_ID, CAMPAIGN_ID, fields=["actions", "cost_per_action_type"])
+insights_time_range = data.fb.get_campaign_insights(INTEGRATION_ID, CAMPAIGN_ID, time_range={"start": "2016-01-08", "until": "2016-01-10"})
 ```
 
 ## Creating Self-Service Reports
