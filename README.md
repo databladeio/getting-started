@@ -2,6 +2,11 @@
 
 [![DataBlade demo video screenshot](https://github.com/databladeio/getting-started/blob/master/demo-video-screenshot.png)](https://www.youtube.com/watch?v=-sT9P5kHMf8)
 
+## Overview Videos
+* [General Overview](https://www.youtube.com/watch?v=-sT9P5kHMf8)
+* [Creating Automated Email Reports](https://www.youtube.com/watch?v=ZF48QJJH_pY)
+* [Creating Self-Service Reports](https://www.youtube.com/watch?v=JUHBqlzrXqY)
+
 ## Hello World
 
 DataBlade provides an interactive environment for doing data analysis. After logging in, create a new Project and start typing some code in the Console in the bottom right part of the screen and see what happens.
