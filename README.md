@@ -251,7 +251,7 @@ Since the URLs for self-service reports are publicly available, we allow users t
 
 ## Keyboard shortcuts
 
-### Editor and Console:
+### Editor and Console
 
 - Run main code: `Ctrl-r` (Windows), `Cmd-r` (Mac)
 - Save (Auto-save works, too): `Ctrl-s` (Windows), `Cmd-s` (Mac)
