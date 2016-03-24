@@ -247,3 +247,24 @@ bool_param = data.params.get_bool("some_bool_parameter", True)
 
 ### Setting a PIN code
 Since the URLs for self-service reports are publicly available, we allow users to set a PIN code that must be entered before the report can be accessed. The PIN code can be configured in the Web tab in the Report configuration pane. Leaving the PIN field empty will disable PIN protection.
+
+
+## Keyboard shortcuts
+
+### Editor and Console:
+
+- Run main code: `Ctrl-r` (Windows), `Cmd-r` (Mac)
+- Save (Auto-save works, too): `Ctrl-s` (Windows), `Cmd-s` (Mac)
+- Outdent lines: `Ctrl-[` (Windows), `Cmd-[` (Mac)
+- Indent lines: `Ctrl-]` (Windows), `Cmd-]` (Mac)
+- Go to beginning of line: `Ctrl-a`
+- Go to end of line: `Ctrl-e`
+- Clear to beginning of line: `Ctrl-u`
+- Clear to end of line: `Ctrl-k`
+- Search: `Ctrl-f` (Windows), `Cmd-f` (Mac)
+- Clear error and output popups: `Esc`
+
+### Console only
+
+- Previous item in history: `Ctrl-p` (Mac)
+- Next item in history: `Ctrl-n` (Mac)
