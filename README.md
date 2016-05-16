@@ -41,6 +41,7 @@ To move any snippets from the Console into your Editor, hover over the code and 
 - [Google Analytics](#google-analytics)
 - [Google BigQuery](#google-bigquery)
 - [Google AdWords](#google-adwords)
+- [Google Sheets](#google-sheets)
 - [MongoDB](#mongodb)
 - [Salesforce](#salesforce)
 - [FTP](#ftp)
@@ -160,6 +161,17 @@ results = data.bq.query(INTEGRATION_ID, SQL_QUERY)
 ```python
 # Example AWQL query: "SELECT CampaignId, Clicks FROM CAMPAIGN_PERFORMANCE_REPORT DURING LAST_WEEK"
 report = data.adwords.get_report(INTEGRATION_ID, AWQL_QUERY)
+```
+
+### Google Sheets
+1. In DataBlade, set up a Google Sheets integration by providing a name for the integration and then clicking **Authenticate with Google**. Follow the prompts that appear to log in.
+2. In your code, query your Google Sheets data using the following snippets:
+
+```python
+# The spreadsheet ID can be found in the URL of the spreadsheet
+# Example: https://docs.google.com/spreadsheets/d/1AFtzJQxZ_Vhr2ikzwnBpstnf-tM9V-MMus9wT7LqXXX/edit
+# The ID is located between /d/ and /edit, i.e. 1AFtzJQxZ_Vhr2ikzwnBpstnf-tM9V-MMus9wT7LqXXX
+sheet = data.sheets.get_spreadsheet(INTEGRATION_ID, SPREADSHEET_ID)
 ```
 
 ### MongoDB
