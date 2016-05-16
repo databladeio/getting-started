@@ -45,6 +45,7 @@ To move any snippets from the Console into your Editor, hover over the code and 
 - [Salesforce](#salesforce)
 - [FTP](#ftp)
 - [Facebook](#facebook)
+- [Shopify](#shopify)
 
 ### SQL
 1. Under "Data Integrations", set up your SQL integration. We currently support PostgreSQL, MySQL, Oracle, and Microsoft SQL Server (MySQL, Oracle, and MS SQL may still have some issues, so let us know if you run into any).
@@ -216,6 +217,23 @@ all_insights = data.fb.get_all_campaign_insights(INTEGRATION_ID, AD_ACCOUNT_ID)
 # For example:
 insights_actions_only = data.fb.get_campaign_insights(INTEGRATION_ID, CAMPAIGN_ID, fields=["actions", "cost_per_action_type"])
 insights_time_range = data.fb.get_campaign_insights(INTEGRATION_ID, CAMPAIGN_ID, time_range={"start": "2016-01-08", "until": "2016-01-10"})
+```
+
+### Shopify
+1. Create a new Shopify integration by providing it a name and your shop. Click **Authenticate with Shopify** and follow the prompts that appear.
+2. In your code, you can access your Shopify store information using the following snippets:
+
+```python
+# Get your Session and set up the Shopify Python SDK
+import shopify
+session = data.shopify.get_session(INTEGRATION_ID)
+shopify.ShopifyResource.activate_session(session)
+
+# You can now query your Shopify objects
+# See additional documentation: http://shopify.github.io/shopify_python_api/
+all_products = shopify.Product.find()
+
+# Coming soon: APIs to load your Shopify objects directly into DataFrames
 ```
 
 ## Creating Self-Service Reports
