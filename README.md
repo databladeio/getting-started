@@ -69,6 +69,12 @@ data.sql.write(INTEGRATION_ID, TABLE_NAME, DATAFRAME, if_exists="fail")
 # The return value is a Boolean indicating whether or not a row was successfully
 # updated. False likely means the ID was not found.
 row_was_updated = data.sql.update_row(INTEGRATION_ID, TABLE_NAME, ID, VALUES)
+
+# You can also query any existing DataFrames that are in memory as if they were tables
+# The DataFrames you refer to in your query must be declared prior to the `query_local`
+# call.
+my_df = pd.DataFrame(np.random.randn(6,4), columns=list('ABCD'))
+result = data.sql.query_local("SELECT A, B FROM my_df")
 ```
 
 #### Creating a read-only user (PostgreSQL)
