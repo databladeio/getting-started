@@ -280,6 +280,34 @@ bool_param = data.params.get_bool("some_bool_parameter", True)
 ### Setting a PIN code
 Since the URLs for self-service reports are publicly available, we allow users to set a PIN code that must be entered before the report can be accessed. The PIN code can be configured in the Web tab in the Report configuration pane. Leaving the PIN field empty will disable PIN protection.
 
+## API Keys
+
+API Keys can be created and managed from the **Settings** page. Note that you must be a part of an organization before creating an API key and that the keys you create are specific to an organization, which will limit what resources each API key will have access to.
+
+## Metadata Store
+
+Each project has a simple key-value store that can hold arbitrary JSON, making it very easy to store and retrieve state. The metadata store is also a handy place to store values that need to be accessed by an external tool, since metadata values are accessible via our API.
+
+*Keep in mind that the metadata store should not be used to store large amounts of raw data. For that, use your [user file store](#user-uploaded-files) or [S3](#s3).*
+
+### Setting and Retrieving Metadata
+
+```python
+data.set_metadata(KEY, VALUE)
+data.get_metadata(KEY, VALUE)
+```
+
+### Querying Project Metadata via API
+
+**Getting all keys & values**
+```
+https://app.datablade.io/api/v1/projects/<PROJECT_ID>/metadata?access_token=<API_KEY>
+```
+
+**Getting specific key**
+```
+https://app.datablade.io/api/v1/projects/<PROJECT_ID>/metadata?access_token=<API_KEY>&key=<KEY>
+```
 
 ## Keyboard shortcuts
 
