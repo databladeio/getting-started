@@ -106,6 +106,15 @@ my_csv = data.read_csv(FILE_NAME)
 # Read a file as a StringIO buffer. Here is an example with line-delimited JSON.
 my_file = data.read_file(FILE_NAME)
 my_dataframe = [json.loads(line) for line in my_file]
+
+# Write back to your user file store
+# (creates a new file or overwrites existing)
+# data.write_file(FILE_NAME, FILE_OBJECT)
+# Example:
+import StringIO
+my_df = pd.DataFrame(np.random.randn(6,4), columns=list('ABCD'))
+my_df_csv = StringIO.StringIO(my_df.to_csv(index=False))
+data.write_file("random.csv", my_df_csv)
 ```
 
 ### S3
