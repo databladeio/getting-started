@@ -261,7 +261,7 @@ all_products = shopify.Product.find()
 
 You may find yourself in a situation where you’ve developed a workflow that you’d like other, potentially non-technical team members, to be able to leverage. We can easily do this with a self-service web report page.
 
-Watch our video tutortial for creating self-service reports [here](https://www.youtube.com/watch?v=JUHBqlzrXqY).
+Watch our video tutorial for creating self-service reports [here](https://www.youtube.com/watch?v=JUHBqlzrXqY).
 
 DataBlade provides a SDK for receiving parameter values from self-service report runs:
 
