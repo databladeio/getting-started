@@ -203,6 +203,8 @@ client = data.mongodb.get_client(INTEGRATION_ID)
 results = data.salesforce.query(INTEGRATION_ID, QUERY)
 ```
 
+**NOTE:** Your organization must be using an edition of Salesforce that has API access enabled. See [here](https://help.salesforce.com/apex/HTViewSolution?urlname=Enabling-API&language=en_US) for more info.
+
 ### FTP
 1. Create a new FTP integration with the host and the user credentials.
 2. In your code, you can access your FTP files using the following snippets:
