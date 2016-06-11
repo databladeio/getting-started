@@ -259,17 +259,17 @@ all_products = shopify.Product.find()
 # Coming soon: APIs to load your Shopify objects directly into DataFrames
 ```
 
-## Creating Self-Service Reports
+## Creating Self-Service Dashboards
 
-You may find yourself in a situation where you’ve developed a workflow that you’d like other, potentially non-technical team members, to be able to leverage. We can easily do this with a self-service web report page.
+You may find yourself in a situation where you’ve developed a workflow that you’d like other, potentially non-technical team members, to be able to leverage. We can easily do this with a Self-Service Dashboard.
 
-Watch our video tutorial for creating self-service reports [here](https://www.youtube.com/watch?v=JUHBqlzrXqY).
+[Watch our video tutorial for creating Self-Service Dashboards here](https://www.youtube.com/watch?v=JUHBqlzrXqY).
 
-DataBlade provides a SDK for receiving parameter values from self-service report runs:
+DataBlade provides a SDK for receiving parameter values from Self-Service Dashboard runs:
 
 ```python
 # For all functions, the first parameter is the key name
-# (should be entered in "Parameter Keys" in the report config)
+# (should be entered in "Parameter Keys" in the Dashboard config)
 # The second parameter is the default value. You'll want to provide one in most cases.
 # When you are developing in the IDE, there is no value provided for parameters, so
 # the default value will always be used.
@@ -280,7 +280,7 @@ bool_param = data.params.get_bool("some_bool_parameter", True)
 ```
 
 ### Setting a PIN code
-Since the URLs for self-service reports are publicly available, we allow users to set a PIN code that must be entered before the report can be accessed. The PIN code can be configured in the Web tab in the Report configuration pane. Leaving the PIN field empty will disable PIN protection.
+Since the URLs for Self-Service Dashboards are publicly available, we allow users to set a PIN code that must be entered before the report can be accessed. The PIN code can be configured in the Web tab in the Dashboard configuration pane. Leaving the PIN field empty will disable PIN protection.
 
 ## API Keys
 
