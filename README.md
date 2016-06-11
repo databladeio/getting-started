@@ -5,7 +5,7 @@
 ## Overview Videos
 * [General Overview](https://www.youtube.com/watch?v=-sT9P5kHMf8)
 * [Creating Automated Email Reports](https://www.youtube.com/watch?v=ZF48QJJH_pY)
-* [Creating Self-Service Reports](https://www.youtube.com/watch?v=JUHBqlzrXqY)
+* [Creating Self-Service Dashboards](https://www.youtube.com/watch?v=JUHBqlzrXqY)
 
 ## Hello World
 
