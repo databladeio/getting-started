@@ -135,6 +135,15 @@ data.write_file("random.csv", my_df_csv)
 # Read a CSV file (replace INTEGRATION_ID, BUCKET_NAME, and KEY as appropriate)
 my_csv = data.s3.read_csv(INTEGRATION_ID, BUCKET_NAME, KEY)
 
+# Read a single-sheet Excel file (.xls or .xlsx) (or the first sheet of a workbook)
+my_excel_file = data.s3.read_excel(INTEGRATION_ID, BUCKET_NAME, KEY)
+
+# Read an entire Excel workbook
+my_excel_file = data.s3.read_excel(INTEGRATION_ID, BUCKET_NAME, KEY, sheetname=None)
+
+# Read a specific sheet from an Excel workbook
+my_excel_file = data.s3.read_excel(INTEGRATION_ID, BUCKET_NAME, KEY, sheetname='Sheet Name')  # May also be a numerical index
+
 # Read a file as a StringIO buffer. Here is an example with line-delimited JSON.
 my_file = data.s3.read_file(INTEGRATION_ID, BUCKET_NAME, KEY)
 my_dataframe = [json.loads(line) for line in my_file]
