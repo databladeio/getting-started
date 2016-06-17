@@ -107,7 +107,7 @@ my_csv = data.read_csv(FILE_NAME)
 my_excel_file = data.read_excel(FILE_NAME)
 
 # Read an entire Excel workbook
-my_excel_file = data.read_excel(FILE_NAME, sheetname=None)  # Read all sheets of a workbook
+my_excel_file = data.read_excel(FILE_NAME, sheetname=None)
 
 # Read a specific sheet from an Excel workbook
 my_excel_file = data.read_excel(FILE_NAME, sheetname='Sessions')  # May also be a numerical index
