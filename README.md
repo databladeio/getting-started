@@ -110,7 +110,7 @@ my_excel_file = data.read_excel(FILE_NAME)
 my_excel_file = data.read_excel(FILE_NAME, sheetname=None)
 
 # Read a specific sheet from an Excel workbook
-my_excel_file = data.read_excel(FILE_NAME, sheetname='Sessions')  # May also be a numerical index
+my_excel_file = data.read_excel(FILE_NAME, sheetname='Sheet Name')  # May also be a numerical index
 
 # Read a file as a StringIO buffer. Here is an example with line-delimited JSON.
 my_file = data.read_file(FILE_NAME)
