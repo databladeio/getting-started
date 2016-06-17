@@ -103,8 +103,14 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA public
 # Read a CSV file
 my_csv = data.read_csv(FILE_NAME)
 
-# Read an Excel file (.xls or .xlsx)
+# Read a single-sheet Excel file (.xls or .xlsx) (or the first sheet of a workbook)
 my_excel_file = data.read_excel(FILE_NAME)
+
+# Read an entire Excel workbook
+my_excel_file = data.read_excel(FILE_NAME, sheetname=None)  # Read all sheets of a workbook
+
+# Read a specific sheet from an Excel workbook
+my_excel_file = data.read_excel(FILE_NAME, sheetname='Sessions')  # May also be a numerical index
 
 # Read a file as a StringIO buffer. Here is an example with line-delimited JSON.
 my_file = data.read_file(FILE_NAME)
