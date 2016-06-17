@@ -132,7 +132,9 @@ data.write_file("random.csv", my_df_csv)
 3. In your code, access your files using the following snippets:
 
 ```python
-# Read a CSV file (replace INTEGRATION_ID, BUCKET_NAME, and KEY as appropriate)
+# For all: Replace INTEGRATION_ID, BUCKET_NAME, and KEY as appropriate
+
+# Read a CSV file
 my_csv = data.s3.read_csv(INTEGRATION_ID, BUCKET_NAME, KEY)
 
 # Read a single-sheet Excel file (.xls or .xlsx) (or the first sheet of a workbook)
