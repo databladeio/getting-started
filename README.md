@@ -103,6 +103,9 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA public
 # Read a CSV file
 my_csv = data.read_csv(FILE_NAME)
 
+# Read an Excel file (.xls or .xlsx)
+my_excel_file = data.read_excel(FILE_NAME)
+
 # Read a file as a StringIO buffer. Here is an example with line-delimited JSON.
 my_file = data.read_file(FILE_NAME)
 my_dataframe = [json.loads(line) for line in my_file]
