@@ -43,6 +43,7 @@ To move any snippets from the Console into your Editor, hover over the code and 
 - [Google AdWords](#google-adwords)
 - [Google Sheets](#google-sheets)
 - [MongoDB](#mongodb)
+- [RethinKDB](#rethinkdb)
 - [Salesforce](#salesforce)
 - [FTP](#ftp)
 - [Facebook](#facebook)
@@ -212,6 +213,24 @@ results = data.mongodb.find(INTEGRATION_ID, COLLECTION_NAME, QUERY)
 
 # You can also access the raw pymongo client
 client = data.mongodb.get_client(INTEGRATION_ID)
+```
+
+### RethinkDB
+1. Under "Data Integrations", set up your RethinkDB integration
+2. In your code, you can query your database using the following snippets:
+
+```python
+import rethinkdb as r
+
+# If you are using a bridge connection to your DB behind a firewall,
+# execute all your statements within a with block to ensure the
+# connection is opened and closed correctly
+with data.rethinkdb.get_connection(INTEGRATION_ID) as conn:
+    result = r.table("mytable").run(conn)
+    
+# If you are using a direct connection, you do not need the with block
+conn = data.rethinkdb.get_connection(INTEGRATION_ID)
+result = r.table("mytable").run(conn)
 ```
 
 ### Salesforce
