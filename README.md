@@ -222,15 +222,12 @@ client = data.mongodb.get_client(INTEGRATION_ID)
 ```python
 import rethinkdb as r
 
-# If you are using a bridged connection to your DB behind a firewall,
-# execute all your statements within a with block to ensure the
-# connection is opened and closed correctly
+# At the moment, you must execute all your commands within a with block
 with data.rethinkdb.get_connection(INTEGRATION_ID) as conn:
     result = r.table("mytable").run(conn)
     
-# If you are using a direct connection, you do not need the with block
-conn = data.rethinkdb.get_connection(INTEGRATION_ID)
-result = r.table("mytable").run(conn)
+# Alternatively, you can bypass the managed data integrations and use the driver directly
+conn = r.connect(...)
 ```
 
 ### Salesforce
