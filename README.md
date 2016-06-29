@@ -43,7 +43,7 @@ To move any snippets from the Console into your Editor, hover over the code and 
 - [Google AdWords](#google-adwords)
 - [Google Sheets](#google-sheets)
 - [MongoDB](#mongodb)
-- [RethinKDB](#rethinkdb)
+- [RethinkDB](#rethinkdb)
 - [Salesforce](#salesforce)
 - [FTP](#ftp)
 - [Facebook](#facebook)
@@ -222,7 +222,7 @@ client = data.mongodb.get_client(INTEGRATION_ID)
 ```python
 import rethinkdb as r
 
-# If you are using a bridge connection to your DB behind a firewall,
+# If you are using a bridged connection to your DB behind a firewall,
 # execute all your statements within a with block to ensure the
 # connection is opened and closed correctly
 with data.rethinkdb.get_connection(INTEGRATION_ID) as conn:
