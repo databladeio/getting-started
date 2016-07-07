@@ -33,6 +33,12 @@ print "Hello World!"
 
 To move any snippets from the Console into your Editor, hover over the code and click the icon that appears to the left of the code.
 
+## Before You Begin
+Before you begin using DataBlade, it's important to note that nearly all of the data querying libraries provided by DataBlade (`data.*`) return results as [DataFrames](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html). DataFrames are part of the popular pandas library and provide a very simple interface to common data manipulation tasks like filtering, mapping, merging, etc.
+
+If you are not familiar with pandas, check out this [introduction](http://synesthesiam.com/posts/an-introduction-to-pandas.html
+).
+
 ## Accessing Your Data
 
 - [SQL](#sql)
