@@ -39,6 +39,8 @@ Before you begin using DataBlade, it's important to note that nearly all of the 
 If you are not familiar with pandas, check out this [introduction](http://synesthesiam.com/posts/an-introduction-to-pandas.html
 ).
 
+With that said, DataBlade provides you all the power and flexibility of a full-featured Python environment, so if you'd rather define your workflows using other techniques or libraries, you are absolutely free to do so. Here is a [list](https://gist.github.com/allenpc/0dcddadd121a778c7aadc158bafb901e) of Python modules that are currently available to import in the environment. If you have additional libraries you'd like to see added, [let us know](mailto:support@datablade.io).
+
 ## Accessing Your Data
 
 - [SQL](#sql)
