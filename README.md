@@ -56,6 +56,7 @@ With that said, DataBlade provides you all the power and flexibility of a full-f
 - [FTP](#ftp)
 - [Facebook](#facebook)
 - [Shopify](#shopify)
+- [Other Data Sources](#other-data-sources)
 
 ### SQL
 1. Under "Data Integrations", set up your SQL integration. We currently support PostgreSQL, MySQL, Oracle, and Microsoft SQL Server (MySQL, Oracle, and MS SQL may still have some issues, so let us know if you run into any).
@@ -302,6 +303,19 @@ all_products = shopify.Product.find()
 
 # Coming soon: APIs to load your Shopify objects directly into DataFrames
 ```
+
+### Other Data Sources
+
+If you want to connect to other data sources that DataBlade doesn't support yet, please [send us a data source addition request at support@datablade.io](mailto:support@datablade.io?subject=New%20data%20source%20request)! We have a bunch of new data sources in our pipeline, but we're happy to prioritize what's important for you.
+
+If you need to access an unsupported data source more quickly than we can get back to you and don't mind getting your hands dirty, you can try using `pip install` directly. Here's an example of installing the [Stripe](https://stripe.com/docs/api/python) API using `pip install`:
+
+```
+import subprocess
+subprocess.check_output(["pip", "install", "stripe"])
+import stripe
+```
+
 
 ## Creating Self-Service Dashboards
 
