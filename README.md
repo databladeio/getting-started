@@ -2,12 +2,14 @@
 
 [![DataBlade demo video screenshot](https://github.com/databladeio/getting-started/blob/master/demo-video-screenshot.png)](https://www.youtube.com/watch?v=-sT9P5kHMf8)
 
-## Overview Videos
+
+# Overview Videos
 * [General Overview](https://www.youtube.com/watch?v=-sT9P5kHMf8)
 * [Creating Automated Email Reports](https://www.youtube.com/watch?v=ZF48QJJH_pY)
 * [Creating Self-Service Dashboards](https://www.youtube.com/watch?v=JUHBqlzrXqY)
 
-## Table of Contents
+
+# Table of Contents
 
 - [Hello World](#hello-world)
 - [Interactive Documentation](#interactive-documentation)
@@ -19,7 +21,8 @@
 - [Importing and Running Projects Programmatically](#importing-and-running-projects-programmatically)
 - [Keyboard Shortcuts](#keyboard-shortcuts)
 
-## Hello World
+
+# Hello World
 
 DataBlade provides an interactive environment for doing data analysis. After logging in, create a new Project and start typing some code in the Console in the bottom right part of the screen and see what happens.
 
@@ -46,7 +49,7 @@ print "Hello World!"
 To move any snippets from the Console into your Editor, hover over the code and click the icon that appears to the left of the code.
 
 
-## Interactive Documentation
+# Interactive Documentation
 
 All of the DataBlade libraries and other Python docs are available via the DataBlade Console. For example:
 
@@ -93,7 +96,7 @@ Functions to get objects and IDs:
 If you're not seeing the documentation, make sure that the `_` is selected in the Variable picker.
 
 
-## Before You Begin
+# Before You Begin
 Before you begin using DataBlade, it's important to note that nearly all of the data querying libraries provided by DataBlade (`data.*`) return results as [DataFrames](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html). DataFrames are part of the popular pandas library and provide a very simple interface to common data manipulation tasks like filtering, mapping, merging, etc.
 
 If you are not familiar with pandas, check out this [introduction](http://synesthesiam.com/posts/an-introduction-to-pandas.html
@@ -101,7 +104,8 @@ If you are not familiar with pandas, check out this [introduction](http://synest
 
 With that said, DataBlade provides you all the power and flexibility of a full-featured Python environment, so if you'd rather define your workflows using other techniques or libraries, you are absolutely free to do so. Here is a [list](https://gist.github.com/allenpc/0dcddadd121a778c7aadc158bafb901e) of Python modules that are currently available to import in the environment. If you have additional libraries you'd like to see added, [let us know](mailto:support@datablade.io).
 
-## Accessing Your Data
+
+# Accessing Your Data
 
 - [SQL](#sql)
 - [User-Uploaded Files](#user-uploaded-files)
@@ -118,7 +122,7 @@ With that said, DataBlade provides you all the power and flexibility of a full-f
 - [Shopify](#shopify)
 - [Other Data Sources](#other-data-sources)
 
-### SQL
+## SQL
 1. Under "Data Integrations", set up your SQL integration. We currently support PostgreSQL, MySQL, Oracle, and Microsoft SQL Server (MySQL, Oracle, and MS SQL may still have some issues, so let us know if you run into any).
 2. Currently, we require that your database be accessible from external clients. In the future, we will have a solution for databases that are behind a firewall.
 3. Ensure that your database is set up to receive connections from `52.25.129.138/32`.
@@ -149,7 +153,7 @@ my_df = pd.DataFrame(np.random.randn(6,4), columns=list('ABCD'))
 result = data.sql.query_local("SELECT A, B FROM my_df")
 ```
 
-#### Creating a read-only user (PostgreSQL)
+### Creating a read-only user (PostgreSQL)
 For added security, you may want to create a special, read-only user account to use with DataBlade:
 
 ```sql
@@ -165,7 +169,7 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA public
    GRANT SELECT ON TABLES TO datablade;
 ```
 
-### User-Uploaded Files
+## User-Uploaded Files
 1. For your convenience, we allow you to upload files directly to DataBlade and use them in your projects as easily as you might use files locally on your computer. To upload, simply click the Upload button on the "Data Integrations" page
 2. In your code, access your files using the following snippets:
 
@@ -196,7 +200,7 @@ my_df_csv = StringIO.StringIO(my_df.to_csv(index=False))
 data.write_file("random.csv", my_df_csv)
 ```
 
-### S3
+## S3
 1. Under "Data Integrations", set up your S3 credentials
 2. Take note of the `ID` value of your integration
 3. In your code, access your files using the following snippets:
@@ -224,7 +228,7 @@ my_dataframe = [json.loads(line) for line in my_file]
 data.s3.write_file(INTEGRATION_ID, BUCKET_NAME, KEY, FILE_OBJECT)
 ```
 
-### Google Analytics
+## Google Analytics
 1. In DataBlade, set up a Google Analytics integration by providing a name for the integration and then clicking **Authenticate with Google**. Follow the prompts that appear to log in.
 2. In your code, query your Google Analytics data using the following snippets:
 
@@ -240,7 +244,7 @@ results = data.ga.query(INTEGRATION_ID,
     metrics='ga:sessions')
 ```
 
-### Google BigQuery
+## Google BigQuery
 1. Ensure that you [create or select a project in the Google Developers Console and enable the BigQuery API](https://console.developers.google.com//start/api?id=bigquery&credential=client_key)
 2. If you already have a service account with a P12 key, you can skip this step. Otherwise, in the Developers Console for the chosen project, under **APIs & auth**, select **Credentials**. In the **Add credentials** dropdown, choose **Service account**. For **Key type**, select **P12**, then click **Create**. The private key should automatically download. Click **Close** in the dialog.
 3. In DataBlade, set up a BigQuery integration, providing the service email account, the generated `.p12` file, and the associated project ID.
@@ -251,7 +255,7 @@ results = data.ga.query(INTEGRATION_ID,
 results = data.bq.query(INTEGRATION_ID, SQL_QUERY)
 ```
 
-### Google AdWords
+## Google AdWords
 1. If you haven't already done so, [apply for the Google AdWords API](https://developers.google.com/adwords/api/docs/signingup)
 2. Once API access is granted on your account, set up a Google AdWords integration in DataBlade, providing the [Developer Token](https://developers.google.com/adwords/api/faq#15113) and [Customer ID](https://support.google.com/adwords/answer/29198?hl=en). Click the **Authenticate with Google** button to complete the authentication process. Make sure that the Google account with authenticate with has been granted AdWords permissions for the provided **Customer ID**. Then click **Create**.
 3. Reports for AdWords are defined using [AWQL](https://developers.google.com/adwords/api/docs/guides/awql#adhoc-reports). You can see a full list of report types and queryable fields [here](https://developers.google.com/adwords/api/docs/appendix/reports).
@@ -262,7 +266,7 @@ results = data.bq.query(INTEGRATION_ID, SQL_QUERY)
 report = data.adwords.get_report(INTEGRATION_ID, AWQL_QUERY)
 ```
 
-### Google Sheets
+## Google Sheets
 1. In DataBlade, set up a Google Sheets integration by providing a name for the integration and then clicking **Authenticate with Google**. Follow the prompts that appear to log in.
 2. In your code, query your Google Sheets data using the following snippets:
 
@@ -273,7 +277,7 @@ report = data.adwords.get_report(INTEGRATION_ID, AWQL_QUERY)
 sheet = data.sheets.get_spreadsheet(INTEGRATION_ID, SPREADSHEET_ID)
 ```
 
-### MongoDB
+## MongoDB
 1. Under "Data Integrations", set up your MongoDB integration. In **Connection String**, make sure to also include your database name in the URI.
 2. In your code, you can query your database using the following snippets:
 
@@ -284,7 +288,7 @@ results = data.mongodb.find(INTEGRATION_ID, COLLECTION_NAME, QUERY)
 client = data.mongodb.get_client(INTEGRATION_ID)
 ```
 
-### RethinkDB
+## RethinkDB
 1. Under "Data Integrations", set up your RethinkDB integration
 2. In your code, you can query your database using the following snippets:
 
@@ -299,7 +303,7 @@ with data.rethinkdb.get_connection(INTEGRATION_ID) as conn:
 conn = r.connect(...)
 ```
 
-### Salesforce
+## Salesforce
 1. Under "Data Integrations", set up your Salesforce integration by giving your integration a name, and then click **Authenticate with Salesforce** and follow the prompts that appear.
 2. You can now access your Salesforce objects using SOQL or SOSL using the following snippets:
 
@@ -310,7 +314,7 @@ results = data.salesforce.query(INTEGRATION_ID, QUERY)
 
 **NOTE:** Your organization must be using an edition of Salesforce that has API access enabled. See [here](https://help.salesforce.com/apex/HTViewSolution?urlname=Enabling-API&language=en_US) for more info.
 
-### FTP
+## FTP
 1. Create a new FTP integration with the host and the user credentials.
 2. In your code, you can access your FTP files using the following snippets:
 
@@ -325,7 +329,7 @@ file_info = data.ftp.get_info(INTEGRATION_ID, PATH)
 file_pointer = data.ftp.read_file(INTEGRATION_ID, PATH)
 ```
 
-### Facebook
+## Facebook
 1. Create a new Facebook integration and authenticate with an account that has access to your Ad Accounts.
 2. In your code, you can access your campaign information using the following snippets:
 
@@ -347,7 +351,7 @@ insights_actions_only = data.fb.get_campaign_insights(INTEGRATION_ID, CAMPAIGN_I
 insights_time_range = data.fb.get_campaign_insights(INTEGRATION_ID, CAMPAIGN_ID, time_range={"start": "2016-01-08", "until": "2016-01-10"})
 ```
 
-### Shopify
+## Shopify
 1. Create a new Shopify integration by providing it a name and your shop. Click **Authenticate with Shopify** and follow the prompts that appear.
 2. In your code, you can access your Shopify store information using the following snippets:
 
@@ -364,7 +368,7 @@ all_products = shopify.Product.find()
 # Coming soon: APIs to load your Shopify objects directly into DataFrames
 ```
 
-### Other Data Sources
+## Other Data Sources
 
 If you want to connect to other data sources that DataBlade doesn't support yet, please [send us a data source addition request at support@datablade.io](mailto:support@datablade.io?subject=New%20data%20source%20request)! We have a bunch of new data sources in our pipeline, but we're happy to prioritize what's important for you.
 
@@ -377,7 +381,7 @@ import stripe
 ```
 
 
-## Creating Self-Service Dashboards
+# Creating Self-Service Dashboards
 
 You may find yourself in a situation where you’ve developed a workflow that you’d like other, potentially non-technical team members, to be able to leverage. We can easily do this with a Self-Service Dashboard.
 
@@ -397,27 +401,29 @@ float_param = data.params.get_float("some_float_parameter", 1.0)
 bool_param = data.params.get_bool("some_bool_parameter", True)
 ```
 
-### Setting a PIN code
+## Setting a PIN code
 Since the URLs for Self-Service Dashboards are publicly available, we allow users to set a PIN code that must be entered before the report can be accessed. The PIN code can be configured in the Web tab in the Dashboard configuration pane. Leaving the PIN field empty will disable PIN protection.
 
-## API Keys
+
+# API Keys
 
 API Keys can be created and managed from the **Settings** page. Note that you must be a part of an organization before creating an API key and that the keys you create are specific to an organization, which will limit what resources each API key will have access to.
 
-## Metadata Store
+
+# Metadata Store
 
 Each project has a simple key-value store that can hold arbitrary JSON, making it very easy to store and retrieve state. The metadata store is also a handy place to store values that need to be accessed by an external tool, since metadata values are accessible via our API.
 
 *Keep in mind that the metadata store should not be used to store large amounts of raw data. For that, use your [user file store](#user-uploaded-files) or [S3](#s3).*
 
-### Setting and Retrieving Metadata
+## Setting and Retrieving Metadata
 
 ```python
 data.set_metadata(KEY, VALUE)
 data.get_metadata(KEY, VALUE)
 ```
 
-### Querying Project Metadata via API
+## Querying Project Metadata via API
 
 **Getting all keys & values**
 ```
@@ -429,7 +435,8 @@ https://app.datablade.io/api/v1/projects/<PROJECT_ID>/metadata?access_token=<API
 https://app.datablade.io/api/v1/projects/<PROJECT_ID>/metadata?access_token=<API_KEY>&key=<KEY>
 ```
 
-## Importing and Running Projects Programmatically
+
+# Importing and Running Projects Programmatically
 
 DataBlade provides two functions for importing and running projects programmatically:
 
@@ -454,7 +461,7 @@ The functions are very similar, with the one key difference:
 
 Here are some examples of how these can be useful:
 
-### Reusing utility functions across projects
+## Reusing utility functions across projects
 
 You may have a DataBlade project containing functions you'd like to reuse in other DataBlade projects. You can do this using `data.run_project`. Take this project:
 
@@ -470,7 +477,7 @@ utils = data.run_project('utils')
 result = utils.square(3)
 ```
 
-### Running a project multiple times with different input parameters
+## Running a project multiple times with different input parameters
 
 You may have a DataBlade project that you'd like to run multiple times in slightly different ways. You can do this easily using `data.import_project`. Take this project:
 
@@ -488,7 +495,7 @@ results2 = insights({'fields': ['spend', 'impressions']})
 results3 = insights({'fields': ['cpm', 'cpc', 'spend', 'impressions', 'clicks']})
 ```
 
-### Project name or ID?
+## Project name or ID?
 
 While you can use project names with `data.import_project` and `data.run_project`, it's often better to use the project ID, for two reasons:
 
@@ -507,7 +514,7 @@ The ID for this project is everything after the last slash in the URL: `57bc779e
 results = data.run_project('57bc779e24a77c27ea8e0dd5')
 ```
 
-### The other parameters
+## The other parameters
 
 `data.import_project` and `data.run_project` both take three other keyword parameters:
 
@@ -515,7 +522,7 @@ results = data.run_project('57bc779e24a77c27ea8e0dd5')
 - return_hidden (default: `False`): Include hidden variables in results
 - show_output (default: `True`): Show output
 
-### A trick: from project import *
+## A trick: from project import *
 
 To add a run/imported project's variables to the import*ing* project's scope -- so they're available directly with the variable picker. Extending the [above utils example](#reusing-utility-functions-across-projects):
 
@@ -528,9 +535,9 @@ result = square(5)
 This is very similar to a Python's "`from module import *`"
 
 
-## Keyboard shortcuts
+# Keyboard shortcuts
 
-### Editor and Console
+## Editor and Console
 
 - Run main code: `Ctrl-r` (Windows), `Cmd-r` (Mac)
 - Outdent lines: `Ctrl-[` (Windows), `Cmd-[` (Mac)
@@ -543,7 +550,7 @@ This is very similar to a Python's "`from module import *`"
 - Clear error and output popups: `Esc`
 - Save (Auto-save works great, too!): `Ctrl-s` (Windows), `Cmd-s` (Mac)
 
-### Console only
+## Console only
 
 - Previous item in history: `Ctrl-p` (Mac)
 - Next item in history: `Ctrl-n` (Mac)
