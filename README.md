@@ -31,6 +31,14 @@ print "Hello World!"
 2 + 2
 ```
 
+```python
+data  # Show documentation for the all DataBlade libraries
+```
+
+```python
+data.fb  # Show documentation for the DataBlade Facebook library
+```
+
 To move any snippets from the Console into your Editor, hover over the code and click the icon that appears to the left of the code.
 
 ## Before You Begin
