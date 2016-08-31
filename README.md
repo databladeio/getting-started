@@ -392,7 +392,6 @@ https://app.datablade.io/api/v1/projects/<PROJECT_ID>/metadata?access_token=<API
 ### Editor and Console
 
 - Run main code: `Ctrl-r` (Windows), `Cmd-r` (Mac)
-- Save (Auto-save works, too): `Ctrl-s` (Windows), `Cmd-s` (Mac)
 - Outdent lines: `Ctrl-[` (Windows), `Cmd-[` (Mac)
 - Indent lines: `Ctrl-]` (Windows), `Cmd-]` (Mac)
 - Go to beginning of line: `Ctrl-a`
@@ -401,6 +400,7 @@ https://app.datablade.io/api/v1/projects/<PROJECT_ID>/metadata?access_token=<API
 - Clear to end of line: `Ctrl-k`
 - Search: `Ctrl-f` (Windows), `Cmd-f` (Mac)
 - Clear error and output popups: `Esc`
+- Save (Auto-save works great, too!): `Ctrl-s` (Windows), `Cmd-s` (Mac)
 
 ### Console only
 
