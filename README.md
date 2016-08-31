@@ -7,6 +7,16 @@
 * [Creating Automated Email Reports](https://www.youtube.com/watch?v=ZF48QJJH_pY)
 * [Creating Self-Service Dashboards](https://www.youtube.com/watch?v=JUHBqlzrXqY)
 
+## Table of Contents
+
+- [Hello World](#hello-world)
+- [Before You Begin](#before-you-begin)
+- [Accessing Your Data](#accessing-your-data)
+- [Creating Self-Service Dashboards](#creating-self-service-dashboards)
+- [API Keys](#api-keys)
+- [Metadata Store](#metadata-store)
+- [Keyboard Shortcuts](#keyboard-shortcuts)
+
 ## Hello World
 
 DataBlade provides an interactive environment for doing data analysis. After logging in, create a new Project and start typing some code in the Console in the bottom right part of the screen and see what happens.
@@ -242,7 +252,7 @@ import rethinkdb as r
 # At the moment, you must execute all your commands within a with block
 with data.rethinkdb.get_connection(INTEGRATION_ID) as conn:
     result = r.table("mytable").run(conn)
-    
+
 # Alternatively, you can bypass the managed data integrations and use the driver directly
 conn = r.connect(...)
 ```
