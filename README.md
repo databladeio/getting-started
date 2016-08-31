@@ -16,6 +16,7 @@
 - [Creating Self-Service Dashboards](#creating-self-service-dashboards)
 - [API Keys](#api-keys)
 - [Metadata Store](#metadata-store)
+- [Importing and Running Projects Programmatically](#importing-and-running-projects-programmatically)
 - [Keyboard Shortcuts](#keyboard-shortcuts)
 
 ## Hello World
@@ -427,6 +428,105 @@ https://app.datablade.io/api/v1/projects/<PROJECT_ID>/metadata?access_token=<API
 ```
 https://app.datablade.io/api/v1/projects/<PROJECT_ID>/metadata?access_token=<API_KEY>&key=<KEY>
 ```
+
+## Importing and Running Projects Programmatically
+
+DataBlade provides two functions for importing and running projects programmatically:
+
+Import a project as a function:
+```py
+data.import_project(project_id_or_name, params={},
+                    return_modules=False, return_hidden=False,
+                    show_output=True)
+```
+
+Run a project directly:
+```py
+data.run_project(project_id_or_name, params={},
+                 return_modules=False, return_hidden=False,
+                 show_output=True)
+```
+
+The functions are very similar, with the one key difference:
+
+- `import_project` returns a function that, when called, will run the project. When the project is run, a `dict` of any variables created by that project.
+- `run_project` just runs the project immediately and returns the results
+
+Here are some examples of how these can be useful:
+
+### Reusing utility functions across projects
+
+You may have a DataBlade project containing functions you'd like to reuse in other DataBlade projects. You can do this using `data.run_project`. Take this project:
+
+Project name: `utils`
+```
+def square(n):
+    return n * n
+```
+
+We can use `data.run_project` to use this project's `square` function in another project:
+```
+utils = data.run_project('utils')
+result = utils.square(3)
+```
+
+### Running a project multiple times with different input parameters
+
+You may have a DataBlade project that you'd like to run multiple times in slightly different ways. You can do this easily using `data.import_project`. Take this project:
+
+Project name: `facebook insights`
+```
+fields = data.params.get_list('fields', default=['spend'])
+insights = data.fb.get_all_campaign_insights('facebook', 'act_123456789', fields=fields)
+```
+
+We can use `data.import_project` to import this project as a function, then call it repeatedly with different parameters:
+```
+insights = data.import_project('facebook insights')
+results1 = insights()
+results2 = insights({'fields': ['spend', 'impressions']})
+results3 = insights({'fields': ['cpm', 'cpc', 'spend', 'impressions', 'clicks']})
+```
+
+### Project name or ID?
+
+While you can use project names with `data.import_project` and `data.run_project`, it's often better to use the project ID, for two reasons:
+
+- The project ID is stable -- it won't change, even if the project is renamed
+- Project IDs are unique -- if a project shares a name with another project, it cannot be imported by name
+
+To get the project ID, open the project and look at the URL:
+
+```
+https://app.datablade.io/projects/57bc779e24a77c27ea8e0dd5
+```
+
+The ID for this project is everything after the last slash in the URL: `57bc779e24a77c27ea8e0dd5`. Use this instead of the name parameter, for example:
+
+```py
+results = data.run_project('57bc779e24a77c27ea8e0dd5')
+```
+
+### The other parameters
+
+`data.import_project` and `data.run_project` both take three other keyword parameters:
+
+- return_modules (default: `False`): Include modules in results
+- return_hidden (default: `False`): Include hidden variables in results
+- show_output (default: `True`): Show output
+
+### A trick: from project import *
+
+To add a run/imported project's variables to the import*ing* project's scope -- so they're available directly with the variable picker. Extending the [above utils example](reusing-utility-functions-across-projects):
+
+```py
+utils = data.run_project('utils')
+global.update(utils)
+result = square(5)
+```
+
+This is very similar to a Python's "`from module import *`"
+
 
 ## Keyboard shortcuts
 
