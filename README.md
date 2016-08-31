@@ -10,6 +10,7 @@
 ## Table of Contents
 
 - [Hello World](#hello-world)
+- [Interactive Documentation](#interactive-documentation)
 - [Before You Begin](#before-you-begin)
 - [Accessing Your Data](#accessing-your-data)
 - [Creating Self-Service Dashboards](#creating-self-service-dashboards)
@@ -41,15 +42,55 @@ print "Hello World!"
 2 + 2
 ```
 
+To move any snippets from the Console into your Editor, hover over the code and click the icon that appears to the left of the code.
+
+
+## Interactive Documentation
+
+All of the DataBlade libraries and other Python docs are available via the DataBlade Console. For example:
+
+Type `data` in the Console...
 ```python
-data  # Show documentation for the all DataBlade libraries
+data
 ```
 
+...to see documentation for all DataBlade libraries:
+```
+datablade
+
+DataBlade: Tools for working with data
+
+Modules:
+- adwords: Google AdWords
+- bq: Google BigQuery
+- fb: Facebook
+- ftp: FTP
+- ga: Google Analytics
+...
+```
+
+To dive deeper, type a sub-library, such as `data.fb`...
 ```python
 data.fb  # Show documentation for the DataBlade Facebook library
 ```
 
-To move any snippets from the Console into your Editor, hover over the code and click the icon that appears to the left of the code.
+...to see documentation for the DataBlade Facebook libraries:
+```
+datablade.fb
+
+Facebook
+
+Facebook objects may be accounts, campaigns, adsets, or ads -- so long as the
+scoping makes sense: Accounts contain campaigns, campaigns contain adsets, and
+adsets contain ads.
+
+Functions to get objects and IDs:
+- get_campaigns(integration_id, object_id): Gets campaigns in an object
+...
+```
+
+If you're not seeing the documentation, make sure that the `_` is selected in the Variable picker.
+
 
 ## Before You Begin
 Before you begin using DataBlade, it's important to note that nearly all of the data querying libraries provided by DataBlade (`data.*`) return results as [DataFrames](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html). DataFrames are part of the popular pandas library and provide a very simple interface to common data manipulation tasks like filtering, mapping, merging, etc.
