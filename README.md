@@ -524,11 +524,11 @@ results = data.run_project('57bc779e24a77c27ea8e0dd5')
 
 ## A trick: from project import *
 
-To add a run/imported project's variables to the import*ing* project's scope -- so they're available directly with the variable picker. Extending the [above utils example](#reusing-utility-functions-across-projects):
+We can use Python-fu to add a run/imported project's variables to the import*ing* project's scope. This way, they'll be available directly with the variable picker and also callable directly. Extending the [above utils example](#reusing-utility-functions-across-projects):
 
 ```py
 utils = data.run_project('utils')
-global.update(utils)
+globals().update(utils)  # Here's the trick!
 result = square(5)
 ```
 
