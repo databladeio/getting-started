@@ -495,6 +495,9 @@ results2 = insights({'fields': ['spend', 'impressions']})
 results3 = insights({'fields': ['cpm', 'cpc', 'spend', 'impressions', 'clicks']})
 ```
 
+The example above uses a `list` parameter. Type `data.params` into the console so see the other types of parameters we support (e.g., `int`, `string`, etc).
+
+
 ## Project name or ID?
 
 While you can use project names with `data.import_project` and `data.run_project`, it's often better to use the project ID, for two reasons:
