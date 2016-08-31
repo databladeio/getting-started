@@ -71,7 +71,7 @@ Modules:
 
 To dive deeper, type a sub-library, such as `data.fb`...
 ```python
-data.fb  # Show documentation for the DataBlade Facebook library
+data.fb
 ```
 
 ...to see documentation for the DataBlade Facebook libraries:
