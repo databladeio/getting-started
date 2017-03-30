@@ -125,7 +125,12 @@ With that said, DataBlade provides you all the power and flexibility of a full-f
 ## SQL
 1. Under "Data Integrations", set up your SQL integration. We currently support PostgreSQL, MySQL, Oracle, and Microsoft SQL Server (MySQL, Oracle, and MS SQL may still have some issues, so let us know if you run into any).
 2. Currently, we require that your database be accessible from external clients. In the future, we will have a solution for databases that are behind a firewall.
-3. Ensure that your database is set up to receive connections from `52.25.129.138/32`.
+3. Ensure that your database is set up to accept connections (whitelist) from our IP addresses:
+      ```
+      52.25.129.138/32
+      104.198.5.177/32
+      104.196.226.127/32
+      ```
 4. In your code, you can query your SQL using the following snippets:
 
 ```python
